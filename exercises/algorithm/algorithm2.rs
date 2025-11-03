@@ -81,23 +81,7 @@ impl<T: Clone> LinkedList<T> {
             },
         }
     }
-    pub fn reverse(&mut self) {
-        let mut index = 1;
-        while let Some(mut first) = self.get_node(1) {
-            unsafe {
-                // 1-2-3-4-5
-                self.start = first.as_ref().next;
-                first.as_mut().prev = self.end;
-                self.end.unwrap().as_mut().next = Some(first);
-                first.as_mut().next = None;
-                self.end = Some(first);
-            };
-            index += 1;
-            if index == self.length - 1 {
-                break;
-            }
-        }
-    }
+    pub fn reverse(&mut self) {}
 }
 
 impl<T> Display for LinkedList<T>
